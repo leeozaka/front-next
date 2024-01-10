@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import ProductCard from "@/components/card_item";
+import Sidenav from "@/components/sidenav";
 
 const items = [
   {
@@ -33,7 +34,7 @@ const items = [
   },
 ];
 
-const EstoquePage: React.FC = () => {
+const StockPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredItems = items.filter((item) =>
@@ -41,31 +42,38 @@ const EstoquePage: React.FC = () => {
   );
 
   return (
-    <>
+    <div>
       <div className="flex justify-center">
         <input
-          className="w-1/2 p-2 m-2 text-center" 
+          className="w-1/2 p-2 m-2 text-center"
           type="text"
           placeholder="Pesquisar"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
-      <div className="flex flex-wrap justify-center">
-        {filteredItems.map((item) => (
-          <ProductCard
-            key={item.id}
-            photo={item.photo}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            stock={item.stock}
-            classmodifier={item.stock > 0 ? "border-2 border-green-500 bg-green-500 " : "border-2 border-red-500 bg-red-500"}
-          />
-        ))}
+
+      <div className="flex">
+        <Sidenav />
+
+        <div className="flex flex-grow justify-center align-center">
+          <div className="flex flex-wrap flex-grow-0">
+            {filteredItems.map((item) => (
+              <ProductCard
+                key={item.id}
+                photo={item.photo}
+                name={item.name}
+                price={item.price}
+                description={item.description}
+                stock={item.stock}
+                classmodifier={item.stock > 0 ? "active" : "inactive"}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default EstoquePage;
+export default StockPage;

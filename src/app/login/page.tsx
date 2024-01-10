@@ -12,7 +12,7 @@ export default function Login() {
                 width={500}
                 height={500}
                 className=" rounded-lg"
-                alt="Sample image"
+                alt="makako"
               />
             </div>
 
