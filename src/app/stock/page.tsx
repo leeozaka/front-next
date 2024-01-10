@@ -1,4 +1,6 @@
-import React from "react";
+'use client';
+
+import React, { useState } from "react";
 import ProductCard from "@/components/card_item";
 
 const items = [
@@ -32,20 +34,37 @@ const items = [
 ];
 
 const EstoquePage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredItems = items.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="flex flex-wrap justify-center  p-12 ">
-      {items.map((item) => (
-        <ProductCard
-          key={item.id}
-          photo={item.photo}
-          name={item.name}
-          price={item.price}
-          description={item.description}
-          stock={item.stock}
-          classmodifier={item.stock > 0 ? "bg-green-500" : "bg-red-500"}
+    <>
+      <div className="flex justify-center">
+        <input
+          className="w-1/2 p-2 m-2 text-center" 
+          type="text"
+          placeholder="Pesquisar"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-      ))}
-    </div>
+      </div>
+      <div className="flex flex-wrap justify-center">
+        {filteredItems.map((item) => (
+          <ProductCard
+            key={item.id}
+            photo={item.photo}
+            name={item.name}
+            price={item.price}
+            description={item.description}
+            stock={item.stock}
+            classmodifier={item.stock > 0 ? "border-2 border-green-500 bg-green-500 " : "border-2 border-red-500 bg-red-500"}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

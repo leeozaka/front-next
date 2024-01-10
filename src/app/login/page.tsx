@@ -5,8 +5,8 @@ export default function Login() {
     <>
       <section className="h-screen">
         <div className="h-auto pl-32 pr-32 pt-8 pb-8">
-          <div className="g-6 flex h-full flex-wrap items-center justify-center lg:justify-around">
-            <div className="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+          <div className="g-6 flex h-full flex-wrap items-center justify-start ">
+            <div className="flex justify-center p-4 shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
               <Image
                 src="https://m.media-amazon.com/images/I/61d+MhFjaAL._AC_UF1000,1000_QL80_.jpg"
                 width={500}
@@ -16,7 +16,7 @@ export default function Login() {
               />
             </div>
 
-            <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
+            <div className="mb-12 md:mb-0 p-4 md:w-8/12 lg:w-5/12 xl:w-5/12">
               <form>
                 <div className="flex flex-row items-center justify-center lg:justify-between">
                   <p className="mb-0 mr-4 text-lg">Entre com:</p>

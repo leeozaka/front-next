@@ -20,7 +20,7 @@ const ProductCard: React.FC<Product> = ({
   classmodifier,
 }) => {
   return (
-    <div className={`block w-52 m-1 rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ${classmodifier}`}>
+    <div className={`block w-52 m-1 rounded-lg ${classmodifier} shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}>
       <a href="#{id} ">
         {/* todo: ao clicar na imagem vai para a pagina do produto */}
         <img className="rounded-t-lg" src={photo} alt={name} />
