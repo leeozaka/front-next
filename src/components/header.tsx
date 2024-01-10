@@ -1,19 +1,37 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 export default function Header() {
+  const path = usePathname(); // Move the code here
+
   return (
     <>
       <div className="flex flex-row justify-between text-black bg-white h-13">
         <div className="flex flex-row place-self-center">
-          <p className="border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl">
+          <p
+            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
+              path === "/stock" ? " bg-slate-300" : ""
+            }`}
+          >
             {" "}
-            <a href="/estoque">estoque</a>
+            <a href="/stock">estoque</a>
           </p>
-          <p className="border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl">
+          <p
+            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
+              path === "/sells" ? " bg-slate-300" : ""
+            }`}
+          >
             {" "}
-            <a href="/vendas">venda</a>{" "}
+            <a href="/sells">venda</a>{" "}
           </p>
-          <p className="border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl">
+          <p
+            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
+              path === "/products" ? " bg-slate-300" : ""
+            }`}
+          >
             {" "}
-            <a href="/produtos">produtos</a>{" "}
+            <a href="/products">produtos</a>{" "}
           </p>
         </div>
 
@@ -30,7 +48,7 @@ export default function Header() {
             <a href="/login">login</a>{" "}
           </p>
           <p className=" pr-2 text-xl ">|</p>
-          <p className=" text-xl text-dodger-blue-950">
+          <p className={`text-xl text-dodger-blue-950`}>
             {" "}
             <a href="/admin">area administrativa</a>{" "}
           </p>

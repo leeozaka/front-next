@@ -33,7 +33,7 @@ const items = [
 
 const EstoquePage: React.FC = () => {
   return (
-    <div className="flex flex-wrap p-12 ">
+    <div className="flex flex-wrap justify-center  p-12 ">
       {items.map((item) => (
         <ProductCard
           key={item.id}
