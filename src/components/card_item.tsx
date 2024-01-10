@@ -22,7 +22,7 @@ const ProductCard: React.FC<Product> = ({
 }) => {
   return (
     <div
-      className={`block w-52 m-1 rounded-lg ${
+      className={`flex flex-col w-52 m-1 rounded-lg ${
         classmodifier == "active"
           ? "border-2 border-green-500 bg-green-500"
           : "border-2 border-red-500 bg-red-500"
@@ -32,7 +32,7 @@ const ProductCard: React.FC<Product> = ({
         {/* todo: ao clicar na imagem vai para a pagina do produto */}
 
         <Image
-          className="rounded-t-lg"
+          className="rounded-t-lg h-52"
           width={208}
           height={208}
           src={photo}
@@ -40,16 +40,19 @@ const ProductCard: React.FC<Product> = ({
         />
       </a>
 
-      <div className="p-6">
-        <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+      <div className="flex flex-col p-5 justify-between">
+        <div id="text">          
+        <h5 className=" text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
           {name}
         </h5>
-        <p className="mb-4 text-base text-neutral-200">{description}</p>
-        <p className="mb-4 text-base text-neutral-200">Preço: ${price}</p>
-        <p className="mb-4 text-base text-neutral-200">Estoque: {stock}</p>
+        <p className=" text-base text-neutral-200">{description}</p>
+        <p className=" text-base text-neutral-200">Preço: ${price}</p>
+        <p className=" text-base text-neutral-200">Estoque: {stock}</p>
+        </div>
+
         <button
           type={classmodifier == "active" ? "button" : undefined}
-          className={`inline-block rounded ${
+          className={`inline-block align-bottom rounded ${
             classmodifier == "active"
               ? "bg-primary hover:bg-dodger-blue-600 active:bg-dodger-blue-700"
               : "bg-slate-500 cursor-default"
