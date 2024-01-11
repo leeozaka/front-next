@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 interface Product {
-  key: number;
+  id: number;
   photo: string;
   name: string;
   price: number;
@@ -11,7 +11,7 @@ interface Product {
 }
 
 const ProductCard: React.FC<Product> = ({
-  key,
+  id,
   photo,
   name,
   price,
@@ -26,9 +26,8 @@ const ProductCard: React.FC<Product> = ({
           : "border-2 border-red-500 bg-red-500"
       } shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}
     >
-      <a href="#{id} ">
-        {/* todo: ao clicar na imagem vai para a pagina do produto */}
-
+      <a href={`/products/${id}`}>
+       
         <Image
           className="rounded-t-lg h-52"
           width={208}

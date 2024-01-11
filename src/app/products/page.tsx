@@ -1,27 +1,44 @@
 "use client";
+
+import React, { useState } from "react";
 import { items } from "@/components/items";
-import { usePathname } from "next/navigation";
 
-const ProductPage: React.FC = () => {
-  const router = usePathname();
+const ProductsPage: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
-  //const { productId } = router.itoa().params;
-
-  const product = items.find((item) => item.id == Number(router));
+  function handleSubmit(searchTerm: string) {
+    for (let i = 0; i < items.length; i++) {
+      if (items[i].name === searchTerm) {
+        return (window.location.href = `/products/${items[i].id}`);
+      }
+    }
+    return (
+      <div>
+        <p>Product not found</p>
+      </div>
+    );
+  }
 
   return (
-    <div>
-      {product ? (
-        <div>
-          <h1>{product.name}</h1>
-          <p>{product.description}</p>
-          <img src={product.photo} alt={product.name} />
-        </div>
-      ) : (
-        <p>Product not found</p>
-      )}
-    </div>
+    <>
+      <div className="flex justify-center m-0">
+        <input
+          className="w-1/2 p-2 text-center border-2 rounded-lg "
+          type="text"
+          placeholder="Pesquisar"
+          value={searchTerm}
+          onChange={(e) => {
+            setSearchTerm(e.target.value);
+          }}
+          onSubmit={() => handleSubmit(searchTerm)}
+        />{" "}
+        <button
+          className="p-2 rounded-lg border-2 bg-dodger-blue-950 text-white"
+          onClick={() => handleSubmit(searchTerm)}
+        >
+          Buscar        </button>
+      </div>
+    </>
   );
 };
-
-export default ProductPage;
+export default ProductsPage;
