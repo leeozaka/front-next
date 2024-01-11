@@ -6,8 +6,8 @@ import Header from "@/components/header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Leonardo Teste",
-  description: "Teste-app-nextjs",
+  title: "atletics",
+  description: "atletics web app",
 };
 
 export default function RootLayout({

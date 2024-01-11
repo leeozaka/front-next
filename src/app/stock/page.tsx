@@ -31,12 +31,14 @@ const StockPage: React.FC = () => {
           <div className="flex flex-wrap flex-grow-0 justify-center ">
             {filteredItems.map((item) => (
               <ProductCard
+                key={item.id}
                 id={item.id}
                 photo={item.photo}
                 name={item.name}
                 price={item.price}
                 description={item.description}
                 stock={item.stock} 
+
               />
             ))}
           </div>
