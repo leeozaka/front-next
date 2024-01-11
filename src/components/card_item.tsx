@@ -27,7 +27,6 @@ const ProductCard: React.FC<Product> = ({
       } shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`}
     >
       <a href={`/products/${id}`}>
-       
         <Image
           className="rounded-t-lg h-52 object-contain bg-white"
           width={208}
@@ -37,8 +36,8 @@ const ProductCard: React.FC<Product> = ({
         />
       </a>
 
-      <div className="flex flex-col p-5 justify-between">
-        <div id="text">
+      <div className="flex flex-col p-1 justify-between">
+        <div id="text" className="p-3">
           <h5 className=" text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
             {name}
           </h5>

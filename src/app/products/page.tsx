@@ -31,8 +31,7 @@ const ProductsPage: React.FC = () => {
               document.getElementById(
                 "not-found-helper"
               )!.innerHTML = `não encontrado`;
-            } 
-
+            }
           }}
         >
           <input
