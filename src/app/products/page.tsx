@@ -10,19 +10,33 @@ const ProductsPage: React.FC = () => {
     const actualItem = items.find(
       (item) => item.name.toLowerCase() === searchTerm.toLowerCase()
     );
-    if (actualItem) {
-      return (window.location.href = `/products/${actualItem.id}`);
-    }
-    document.getElementById("not-found")!.innerHTML = `${searchTerm}&nbsp;`;
-    document.getElementById("not-found-helper")!.innerHTML = `não encontrado`;
+    return actualItem
+      ? (window.location.href = `/products/${actualItem.id}`)
+      : undefined;
   }
 
   return (
     <>
       <div className="flex flex-col justify-center m-0">
-        <div id="wrap-input" className="flex justify-center">
+        <form
+          id="wrap-input"
+          className="flex justify-center"
+          onSubmit={(e) => {
+            e.preventDefault();
+            const result = handleSubmit(searchTerm);
+            if (!result) {
+              document.getElementById(
+                "not-found"
+              )!.innerHTML = `${searchTerm}&nbsp;`;
+              document.getElementById(
+                "not-found-helper"
+              )!.innerHTML = `não encontrado`;
+            } 
+
+          }}
+        >
           <input
-            className="w-1/2 p-2 text-center border-2 rounded-lg "
+            className="w-1/2 p-2 text-center border-2 rounded-lg"
             type="text"
             placeholder="Pesquisar"
             value={searchTerm}
@@ -33,11 +47,10 @@ const ProductsPage: React.FC = () => {
           <button
             type="submit"
             className="p-2 rounded-lg border-2 bg-dodger-blue-950 text-white"
-            onClick={() => handleSubmit(searchTerm)}
           >
             Buscar
           </button>
-        </div>
+        </form>
         <div className="flex justify-center pt-2">
           <p id="not-found" className="text-red-500 font-bold "></p>
           <p id="not-found-helper"></p>
