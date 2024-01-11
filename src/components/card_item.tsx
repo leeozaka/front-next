@@ -32,7 +32,7 @@ const ProductCard: React.FC<Product> = ({
           width={208}
           height={208}
           src={photo}
-          alt={name}
+          alt={name} 
         />
       </a>
 

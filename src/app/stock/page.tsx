@@ -29,7 +29,7 @@ const StockPage: React.FC = () => {
 
         <div className="flex flex-grow justify-center align-center">
           <div className="flex flex-wrap flex-grow-0 justify-center ">
-            {filteredItems.map((item) => (
+            {filteredItems.sort((b, a) => a.stock - b.stock).map((item) => (
               <ProductCard
                 key={item.id}
                 id={item.id}
