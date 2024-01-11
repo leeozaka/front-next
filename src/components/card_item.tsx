@@ -29,7 +29,7 @@ const ProductCard: React.FC<Product> = ({
       <a href={`/products/${id}`}>
        
         <Image
-          className="rounded-t-lg h-52"
+          className="rounded-t-lg h-52 object-contain bg-white"
           width={208}
           height={208}
           src={photo}
