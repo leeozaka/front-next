@@ -3,20 +3,30 @@ import Image from "next/image";
 
 interface Product {
   id: number;
-  photo: string;
-  name: string;
-  price: number;
+  title: string;
   description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
   stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[]; 
 }
 
 const ProductCard: React.FC<Product> = ({
   id,
-  photo,
-  name,
-  price,
+  title,
   description,
+  price,
+  discountPercentage,
+  rating,
   stock,
+  brand,
+  category,
+  thumbnail,
+  images, 
 }) => {
   return (
     <div
@@ -31,23 +41,24 @@ const ProductCard: React.FC<Product> = ({
           className="rounded-t-lg h-52 object-contain bg-white"
           width={208}
           height={208}
-          src={photo}
-          alt={name} 
+          src={thumbnail}
+          alt={title}
         />
       </a>
 
-      <div className="flex flex-col p-1 justify-between">
+      <div className="flex flex-col flex-grow justify-between p-1">
         <div id="text" className="p-3">
           <h5 className=" text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-            {name}
+            {title}
           </h5>
-          <p className=" text-base text-neutral-200">{description}</p>
+          <p className=" text-sm text-neutral-200">{description}</p>
           <p className=" text-base text-neutral-200">Preço: ${price}</p>
-          <p className=" text-base text-neutral-200">Estoque: {stock}</p>
+          <p id="stock"className=" text-base text-neutral-200">Estoque: {stock}</p>
         </div>
 
         <button
           type={stock > 0 ? "button" : undefined}
+          disabled={stock <= 0}            
           className={`inline-block align-bottom rounded ${
             stock > 0
               ? "bg-primary hover:bg-dodger-blue-600 active:bg-dodger-blue-700"

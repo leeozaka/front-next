@@ -1,15 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "@/components/card_item";
 import Sidenav from "@/components/sidenav";
-import { items } from "@/components/items";
+import GetStaticProps from "@/components/getData";
 
 const StockPage: React.FC = () => {
+  const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredItems = items.filter((item) =>
-    item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  useEffect(() => {
+    GetStaticProps().then((result) => {
+      setItems(result.props.products);
+    });
+  }, []);
+
+  const filteredItems = items.filter((item: { title: string }) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -29,18 +36,36 @@ const StockPage: React.FC = () => {
 
         <div className="flex flex-grow justify-center align-center">
           <div className="flex flex-wrap flex-grow-0 justify-center ">
-            {filteredItems.sort((b, a) => a.stock - b.stock).map((item) => (
-              <ProductCard
-                key={item.id}
-                id={item.id}
-                photo={item.photo}
-                name={item.name}
-                price={item.price}
-                description={item.description}
-                stock={item.stock} 
-
-              />
-            ))}
+            {filteredItems
+              .sort(
+                (b: { stock: number }, a: { stock: number }) =>
+                  a.stock - b.stock
+              )
+              .map(
+                (item: {
+                  id: number;
+                  thumbnail: string;
+                  title: string;
+                  price: number;
+                  description: string;
+                  stock: number;
+                }) => (
+                  <ProductCard
+                    key={item.id}
+                    id={item.id}
+                    thumbnail={item.thumbnail}
+                    title={item.title}
+                    price={item.price}
+                    description={item.description}
+                    stock={item.stock}
+                    discountPercentage={0}
+                    rating={0}
+                    brand={""}
+                    category={""}
+                    images={[]}
+                  />
+                )
+              )}
           </div>
         </div>
       </div>
