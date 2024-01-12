@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "@/components/card_item";
 import Sidenav from "@/components/sidenav";
 import GetStaticProps from "@/components/get_data";
+import { Product } from "@/components/items";
 
 const StockPage: React.FC = () => {
   const [items, setItems] = useState([]);
@@ -15,8 +16,11 @@ const StockPage: React.FC = () => {
     });
   }, []);
 
-  const filteredItems = items.filter((item: { title: string }) =>
-    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredItems = items.filter((item: Product) =>
+    item.id === Number(searchTerm) ||
+    item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.brand.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
