@@ -1,14 +1,22 @@
 "use client";
 
-import React, { useState } from "react";
-import { items } from "@/components/items";
+import React, { useState, useEffect } from "react";
+import GetStaticProps from "@/components/getData";
+import { Product } from '@/components/items'
 
 const ProductsPage: React.FC = () => {
+  const [items, setItems] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  useEffect(() => {
+    GetStaticProps().then((result) => {
+      setItems(result.props.products);
+    });
+  }, []);
 
   function handleSubmit(searchTerm: string) {
     const actualItem = items.find(
-      (item) => item.name.toLowerCase() === searchTerm.toLowerCase()
+      (item) => item.title.toLowerCase() === searchTerm.toLowerCase()
     );
     return actualItem
       ? (window.location.href = `/products/${actualItem.id}`)

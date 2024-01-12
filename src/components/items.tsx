@@ -1,3 +1,17 @@
+export interface Product {
+  id: number;
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage: number;
+  rating: number;
+  stock: number;
+  brand: string;
+  category: string;
+  thumbnail: string;
+  images: string[]; 
+}
+
 async function getItems () {
   const unresolvedData = await fetch('localhost:3001/products/get');
   const data = unresolvedData.json();
