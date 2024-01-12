@@ -12,13 +12,6 @@ export interface Product {
   images: string[]; 
 }
 
-async function getItems () {
-  const unresolvedData = await fetch('localhost:3001/products/get');
-  const data = unresolvedData.json();
-  return data;
-}   
-
-export default getItems;
 // export const items = [
 //
 //   {
