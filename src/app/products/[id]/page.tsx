@@ -1,22 +1,16 @@
+/* eslint-disable @next/next/no-async-client-component */
 "use client";
 
 import Image from "next/image";
-import { Product } from "@/components/items";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import React from "react";
 import GetStaticProps from "@/components/getData";
 
-const ProductPage = () => {
-  const [items, setItems] = useState<Product[]>([]);
+export default async function ProductPage() { 
   const id = usePathname().replace("/products/", "");
-  const product = items.find((item) => item.id === Number(id));
 
-  useEffect(() => {
-    GetStaticProps().then((result) => {
-      setItems(result.props.products);
-    });
-  }
-  , []);
+  const items = await GetStaticProps().then((result) => result.props.products);
+  const product = items.find((item: { id: number; }) => item.id === Number(id));
 
   return (
     <div>
@@ -39,11 +33,9 @@ const ProductPage = () => {
         </div>
       ) : (
         <p className="flex h-svh text-4xl items-center justify-center">
-          Product not found
+         Produto nao encontrado!  
         </p>
       )}
     </div>
   );
-};
-
-export default ProductPage;
+}

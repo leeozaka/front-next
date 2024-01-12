@@ -1,19 +1,6 @@
 import React from "react";
 import Image from "next/image";
-
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
-  category: string;
-  thumbnail: string;
-  images: string[]; 
-}
+import { Product } from "@/components/items"
 
 const ProductCard: React.FC<Product> = ({
   id,
