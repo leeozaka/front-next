@@ -4,7 +4,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
-import GetStaticProps from "@/components/getData";
+import GetStaticProps from "@/components/get_data";
 
 export default async function ProductPage() { 
   const id = usePathname().replace("/products/", "");

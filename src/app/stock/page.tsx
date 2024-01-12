@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "@/components/card_item";
 import Sidenav from "@/components/sidenav";
-import GetStaticProps from "@/components/getData";
+import GetStaticProps from "@/components/get_data";
 
 const StockPage: React.FC = () => {
   const [items, setItems] = useState([]);

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import GetStaticProps from "@/components/getData";
+import GetStaticProps from "@/components/get_data";
 import { Product } from '@/components/items'
 
 const ProductsPage: React.FC = () => {
