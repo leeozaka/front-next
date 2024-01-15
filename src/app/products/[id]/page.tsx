@@ -13,16 +13,17 @@ export default async function ProductPage() {
   const product = items.find((item: { id: number; }) => item.id === Number(id));
 
   return (
-    <div>
+    <div id="sells-wrapper" className="flex justify-center flex-grow mt-4">
       {product ? (
-        <div id="product" className="flex justify-center w-full ">
+        <div id="product" className="flex w-3/4 justify-center">
           <Image
+            className="rounded-lg h-52 object-contain bg-white"
             src={product.thumbnail}
             alt={product.title}
             width={400}
             height={400}
           />
-          <div className="flex text-xl flex-col justify-center">
+          <div className="flex text-xl flex-col justify-between">
             <h1 className="p-1 font-extrabold">{product.title}</h1>
             <p className="p-1">{product.description}</p>
             <div className="flex flex-row p-2">
