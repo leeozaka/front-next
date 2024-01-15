@@ -2,9 +2,9 @@ export default function Home() {
   return (
     <>
       <div>
-        <div className="flex flex-col justify-center items-center bg-gray-200 h-screen">
-          <p className="text-6xl font-black">Bem vindo ao Atletics</p>
-          <p className="text-2xl font-black">
+        <div className="flex flex-col justify-center items-center bg-gray-200 h-screen font-black dark:bg-gray-800 dark:text-dodger-blue-50">
+          <p className="text-6xl ">Bem vindo ao Atletics</p>
+          <p className="text-2xl ">
             Aqui você pode gerenciar seu estoque, vendas e produtos
           </p>
           <br />

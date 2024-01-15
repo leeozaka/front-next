@@ -7,11 +7,11 @@ export default function Header() {
 
   return (
     <>
-      <div className="flex flex-row justify-between text-black bg-white h-13">
+      <div className="flex flex-row justify-between text-black bg-white h-13 dark:bg-gray-900 dark:text-white">
         <div className="flex flex-row place-self-center justify-center w-[312px]">
           <p
             className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/stock" ? " bg-slate-300" : ""
+              path === "/stock" ? " bg-slate-300 dark:bg-slate-700" : ""
             }`}
           >
             {" "}
@@ -19,7 +19,7 @@ export default function Header() {
           </p>
           <p
             className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/sells" ? " bg-slate-300" : ""
+              path === "/sells" ? " bg-slate-300 dark:bg-slate-700" : ""
             }`}
           >
             {" "}
@@ -27,7 +27,7 @@ export default function Header() {
           </p>
           <p
             className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/products" ? " bg-slate-300" : ""
+              path === "/products" ? " bg-slate-300 dark:bg-slate-700" : ""
             }`}
           >
             {" "}
@@ -36,7 +36,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center justify-center">
-          <p className="text-2xl text-dodger-blue-950  font-black absolute center">
+          <p className="text-2xl text-dodger-blue-950  font-black absolute center dark:text-dodger-blue-600">
             <a href="/"> Atletics </a>
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function Header() {
             <a href="/login">login</a>{" "}
           </p>
           <p className=" pr-2 text-xl ">|</p>
-          <p className={`text-xl text-dodger-blue-950 text-nowrap`}>
+          <p className={`text-xl text-dodger-blue-950 text-nowrap dark:text-dodger-blue-500`}>
             {" "}
             <a href="/admin">area administrativa</a>{" "}
           </p>

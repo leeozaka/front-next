@@ -25,7 +25,7 @@ const ProductsPage: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center m-0">
+      <div className="flex flex-col justify-center m-6">
         <form
           id="wrap-input"
           className="flex justify-center"
@@ -43,7 +43,7 @@ const ProductsPage: React.FC = () => {
           }}
         >
           <input
-            className="w-1/2 p-2 text-center border-2 rounded-lg"
+            className="w-1/2 p-2 text-center border-2 rounded-lg dark:bg-gray-800 dark:text-white dark:border-dodger-blue-950"
             type="text"
             placeholder="Pesquisar"
             value={searchTerm}
@@ -53,7 +53,7 @@ const ProductsPage: React.FC = () => {
           />
           <button
             type="submit"
-            className="p-2 rounded-lg border-2 bg-dodger-blue-950 text-white"
+            className="p-2 rounded-lg border-2 bg-dodger-blue-950 text-white dark:border-dodger-blue-950 "
           >
             Buscar
           </button>

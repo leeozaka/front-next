@@ -24,7 +24,7 @@ const StockPage: React.FC = () => {
   );
 
   return (
-    <div>
+    <div className="dark:bg-slate-700">
       <div className="flex justify-center">
         <input
           className="w-1/2 p-2 m-2 text-center"
