@@ -1,40 +1,17 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { md_query_lg, md_query_sm } from "./navbar_md";
 
 export default function Header() {
-  const path = usePathname(); 
-
+  const path = usePathname();
+  const nav_lg = md_query_lg(path);
+  const nav_sm = md_query_sm(path);
+  
   return (
     <>
-      <div className="flex flex-row justify-between text-black bg-white h-13 dark:bg-gray-900 dark:text-white">
-        <div className="flex flex-row place-self-center justify-center w-[312px]">
-          <p
-            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/stock" ? " bg-slate-300 dark:bg-slate-700" : ""
-            }`}
-          >
-            {" "}
-            <a href="/stock">estoque</a>
-          </p>
-          <p
-            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/sells" ? " bg-slate-300 dark:bg-slate-700" : ""
-            }`}
-          >
-            {" "}
-            <a href="/sells">venda</a>{" "}
-          </p>
-          <p
-            className={`border-solid border-3 rounded-md hover:bg-dodger-blue-800 hover:text-white transition-all m-3 p-1 text-xl ${
-              path === "/products" ? " bg-slate-300 dark:bg-slate-700" : ""
-            }`}
-          >
-            {" "}
-            <a href="/products">produtos</a>{" "}
-          </p>
-        </div>
-
+      <div className={`flex flex-row justify-between text-black bg-white h-13 dark:bg-gray-900 dark:text-white `}>
+        {document.body.clientWidth > 768 ?  nav_lg : nav_sm}
         <div className="flex items-center justify-center">
           <p className="text-2xl text-dodger-blue-950  font-black absolute center dark:text-dodger-blue-600">
             <a href="/"> Atletics </a>
