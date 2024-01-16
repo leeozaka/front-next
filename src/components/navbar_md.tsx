@@ -28,7 +28,7 @@ export function md_query_lg(path: string) {
   )
 }
 
-export function md_query_sm(path: string) {
+export function md_query_sm() {
   return (
       <div className="w-48 group relative cursor-pointer py-2">
         <div className="flex items-center justify-between space-x-5 px-4 dark:text-white">
@@ -45,7 +45,7 @@ export function md_query_sm(path: string) {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              className="h-6 w-6"
+              className="h-6 w-6 invisible sm:visible dark:text-white"
             >
               <path
                 stroke-linecap="round"

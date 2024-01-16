@@ -6,7 +6,7 @@ import { md_query_lg, md_query_sm } from "./navbar_md";
 export default function Header() {
   const path = usePathname();
   const nav_lg = md_query_lg(path);
-  const nav_sm = md_query_sm(path);
+  const nav_sm = md_query_sm();
   
   return (
     <>
@@ -20,16 +20,18 @@ export default function Header() {
 
         <div className="flex place-self-center justify-center p-2 m-2 w-[312px]">
           <p className=" pr-2 text-xl ">
-            {" "}
             <a href="/login">login</a>{" "}
           </p>
-          <p className=" pr-2 text-xl ">|</p>
-          <p className={`text-xl text-dodger-blue-950 text-nowrap dark:text-dodger-blue-500`}>
-            {" "}
-            <a href="/admin">area administrativa</a>{" "}
-          </p>
+
+          <div>
+            
+            <p className=" pr-2 text-xl ">|</p>
+            <p className={`text-xl text-dodger-blue-950 text-nowrap dark:text-dodger-blue-500 invisible sm:visible`}/>
+              <a href="/admin">area administrativa</a>
+          </div>
+
+          </div>
         </div>
-      </div>
-    </>
+      </>
   );
 }
