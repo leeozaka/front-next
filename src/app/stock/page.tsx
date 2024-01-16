@@ -27,7 +27,7 @@ const StockPage: React.FC = () => {
     <div className="dark:bg-slate-700">
       <div className="flex justify-center">
         <input
-          className="w-1/2 p-2 m-2 text-center"
+          className="w-1/2 p-2 m-2 text-center border-2 border-gray-300 rounded-md dark:bg-slate-600 dark:text-white"
           type="text"
           placeholder="Pesquisar"
           value={searchTerm}
