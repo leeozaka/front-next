@@ -1,23 +1,27 @@
-/* eslint-disable @next/next/no-async-client-component */
 "use client";
 
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GetStaticProps from "@/components/get_data";
 
-export default async function ProductPage() { 
+export default function ProductPage() { 
   const id = usePathname().replace("/products/", "");
 
-  const items = await GetStaticProps().then((result) => result.props.products);
-  const product = items.find((item: { id: number; }) => item.id === Number(id));
+  const [data, setData] = useState<any>([]);
+  
+  useEffect(() => {
+    GetStaticProps().then((result) => setData(result.props.products));
+  }, []);
+
+  const product = data.find((item: { id: number; }) => item.id === Number(id));
 
   return (
-    <div id="sells-wrapper" className="flex justify-center flex-grow mt-4">
+    <div id="sells-wrapper" className="flex justify-center flex-grow mt-8 dark:text-white">
       {product ? (
         <div id="product" className="flex w-3/4 justify-center">
           <Image
-            className="rounded-lg h-52 object-contain bg-white"
+            className="rounded-lg h-52 object-contain bg-white mr-4"
             src={product.thumbnail}
             alt={product.title}
             width={400}
@@ -33,9 +37,10 @@ export default async function ProductPage() {
           </div>
         </div>
       ) : (
-        <p className="flex h-svh text-4xl items-center justify-center">
-         Produto nao encontrado!  
-        </p>
+        <a/>
+         // <p className="flex h-svh text-4xl items-center justify-center">
+         
+        // </p>
       )}
     </div>
   );

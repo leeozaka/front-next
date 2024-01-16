@@ -18,16 +18,16 @@ export default function Header() {
           </p>
         </div>
 
-        <div className="flex place-self-center justify-center p-2 m-2 w-[312px]">
-          <p className=" pr-2 text-xl ">
+        <div className="flex justify-center p-2 m-2 w-[312px]">
+          <div className="flex text-xl items-center">
+          <p className="pr-2 text-xl ">
             <a href="/login">login</a>{" "}
           </p>
 
-          <div>
-            
-            <p className=" pr-2 text-xl ">|</p>
-            <p className={`text-xl text-dodger-blue-950 text-nowrap dark:text-dodger-blue-500 invisible sm:visible`}/>
+            <p className="m-2 cursor-default ">|</p>
+            <p className={`text-dodger-blue-950 text-nowrap dark:text-dodger-blue-500 `}>
               <a href="/admin">area administrativa</a>
+            </p> 
           </div>
 
           </div>
