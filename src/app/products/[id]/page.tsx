@@ -4,11 +4,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import GetStaticProps from "@/components/get_data";
+import { Product } from "@/components/items";
 
 export default function ProductPage() { 
   const id = usePathname().replace("/products/", "");
 
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<Product[]>([]);
   
   useEffect(() => {
     GetStaticProps().then((result) => setData(result.props.products));
