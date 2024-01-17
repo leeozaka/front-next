@@ -31,7 +31,7 @@ const StockPage: React.FC = () => {
             filteredItems.length > 0 ? searchTerm.length > 0 ? "ring-green-500" : "ring-gray-500" : "ring-red-500" 
           }`} 
           type="text"
-          placeholderItems="Pesquisar"
+          placeholder="Pesquisar"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />

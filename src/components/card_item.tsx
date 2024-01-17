@@ -34,11 +34,11 @@ const ProductCard: React.FC<Product> = ({
       </a>
 
       <div className="flex flex-col flex-grow justify-between p-1">
-        <div id={title} className="mt-2">
-          <h5 className="w-auto text-pretty font-bold leading-tight text-neutral-800 dark:text-neutral-50">
+        <div id={title} className="flex flex-col flex-grow mt-2">
+          <h5 className=" w-auto text-pretty font-bold leading-tight text-neutral-800 dark:text-neutral-50">
             {title}
           </h5>
-          <p className=" text-sm h-28 overflow-y-auto text-neutral-200">{description}</p>
+          <p className="flex-grow h-[120px] text-sm overflow-y-auto text-neutral-200">{description}</p>
         </div>
         
         <div className="flex flex-col justify-center">
