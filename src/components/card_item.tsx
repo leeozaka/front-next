@@ -17,7 +17,7 @@ const ProductCard: React.FC<Product> = ({
 }) => {
   return (
     <div
-      className={`flex flex-col w-52 m-1 rounded-lg ${
+      className={`flex flex-col w-52 h-[500px] m-1 rounded-lg ${
         stock > 0
           ? "border-2 border-green-500 bg-green-500"
           : "border-2 border-red-500 bg-red-500"
@@ -34,19 +34,22 @@ const ProductCard: React.FC<Product> = ({
       </a>
 
       <div className="flex flex-col flex-grow justify-between p-1">
-        <div id="text" className="p-3">
-          <h5 className=" text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+        <div id={title} className="mt-2">
+          <h5 className="w-auto text-pretty font-bold leading-tight text-neutral-800 dark:text-neutral-50">
             {title}
           </h5>
-          <p className=" text-sm text-neutral-200">{description}</p>
+          <p className=" text-sm h-28 overflow-y-auto text-neutral-200">{description}</p>
+        </div>
+        
+        <div className="flex flex-col justify-center">
           <p className=" text-base text-neutral-200">Preço: ${price}</p>
           <p id="stock"className=" text-base text-neutral-200">Estoque: {stock}</p>
-        </div>
+         
 
         <button
           type={stock > 0 ? "button" : undefined}
           disabled={stock <= 0}            
-          className={`inline-block align-bottom rounded ${
+          className={`inline-block align-bottom rounded mt-2 ${
             stock > 0
               ? "bg-primary hover:bg-dodger-blue-600 active:bg-dodger-blue-700"
               : "bg-slate-500 cursor-default"
@@ -54,6 +57,7 @@ const ProductCard: React.FC<Product> = ({
         >
           Adicionar
         </button>
+        </div>
       </div>
     </div>
   );
