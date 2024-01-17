@@ -5,7 +5,7 @@ export default function Login() {
     <>
       <section className="h-screen">
         <div className="h-auto pl-32 pr-32 pt-8 pb-8 dark:bg-gray-800">
-          <div className="g-6 flex h-full flex-wrap items-center justify-start ">
+          <div className="g-6 flex h-full flex-wrap items-center justify-center ">
             <div className="flex justify-center p-4 shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
               <Image
                 src="https://m.media-amazon.com/images/I/61d+MhFjaAL._AC_UF1000,1000_QL80_.jpg"
