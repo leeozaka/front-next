@@ -43,7 +43,7 @@ const ProductCard: React.FC<Product> = ({
         
         <div className="flex flex-col justify-center">
           <p className=" text-base text-neutral-200">Preço: ${price}</p>
-          <p id="stock"className=" text-base text-neutral-200">Estoque: {stock}</p>
+          <p id="stock" className=" text-base text-neutral-200">Estoque: {stock}</p>
          
 
         <button
