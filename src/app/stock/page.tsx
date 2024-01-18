@@ -16,11 +16,12 @@ const StockPage: React.FC = () => {
     });
   }, []);
 
-  const filteredItems = items.filter((item: Product) =>
-    item.id === Number(searchTerm) ||
-    item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.brand.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredItems = items.filter(
+    (item: Product) =>
+      item.id === Number(searchTerm) ||
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.brand.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -28,7 +29,12 @@ const StockPage: React.FC = () => {
       <div className="flex justify-center">
         <input
           className={`w-1/2 color-white p-2 m-2 text-center  border-2 rounded-md dark:bg-slate-600 dark:text-white ring-2 transition-all duration-500 ${
-            filteredItems.length > 0 && searchTerm.length > 0 ? "ring-green-500" : searchTerm.length === 0 ?  "ring-slate-500" : "ring-red-500"} `} 
+            filteredItems.length > 0 && searchTerm.length > 0
+              ? "ring-green-500"
+              : searchTerm.length === 0
+              ? "ring-slate-500"
+              : "ring-red-500"
+          } `}
           type="text"
           placeholder="Pesquisar"
           value={searchTerm}

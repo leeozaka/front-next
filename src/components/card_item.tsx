@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Product } from "@/components/items"
+import { Product } from "@/components/items";
 
 const ProductCard: React.FC<Product> = ({
   id,
@@ -13,7 +13,7 @@ const ProductCard: React.FC<Product> = ({
   brand,
   category,
   thumbnail,
-  images, 
+  images,
 }) => {
   return (
     <div
@@ -38,25 +38,28 @@ const ProductCard: React.FC<Product> = ({
           <h5 className=" w-auto text-pretty font-bold leading-tight text-neutral-800 dark:text-neutral-50">
             {title}
           </h5>
-          <p className="flex-grow h-[120px] text-sm overflow-y-auto text-neutral-200">{description}</p>
+          <p className="flex-grow h-[120px] text-sm overflow-y-auto text-neutral-200">
+            {description}
+          </p>
         </div>
-        
+
         <div className="flex flex-col justify-center">
           <p className=" text-base text-neutral-200">Preço: ${price}</p>
-          <p id="stock" className=" text-base text-neutral-200">Estoque: {stock}</p>
-         
+          <p id="stock" className=" text-base text-neutral-200">
+            Estoque: {stock}
+          </p>
 
-        <button
-          type={stock > 0 ? "button" : undefined}
-          disabled={stock <= 0}            
-          className={`inline-block align-bottom rounded mt-2 ${
-            stock > 0
-              ? "bg-primary hover:bg-dodger-blue-600 active:bg-dodger-blue-700"
-              : "bg-slate-500 cursor-default"
-          } px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out  focus:outline-none`}
-        >
-          Adicionar
-        </button>
+          <button
+            type={stock > 0 ? "button" : undefined}
+            disabled={stock <= 0}
+            className={`inline-block align-bottom rounded mt-2 ${
+              stock > 0
+                ? "bg-primary hover:bg-dodger-blue-600 active:bg-dodger-blue-700"
+                : "bg-slate-500 cursor-default"
+            } px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out  focus:outline-none`}
+          >
+            Adicionar
+          </button>
         </div>
       </div>
     </div>

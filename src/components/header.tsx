@@ -9,7 +9,7 @@ export default function Header() {
     <>
       <div
         className={`flex flex-row justify-between text-black bg-white h-13 dark:bg-gray-900 dark:text-white `}
-     >  
+      >
         <div id="xl" className="hidden md:flex">
           <div className="flex flex-row place-self-center justify-center w-[312px]">
             <p
@@ -84,7 +84,7 @@ export default function Header() {
             </div>
           </div>
         </div>
-      
+
         <div className="flex items-center justify-center">
           <p className="text-2xl text-dodger-blue-950  font-black absolute center dark:text-dodger-blue-600">
             <a href="/"> Atletics </a>
@@ -96,10 +96,15 @@ export default function Header() {
             <p className="pr-2 text-xl ">
               <a href="/login">login</a>
             </p>
-            
-            <div className="hidden sm:flex items-center"> 
+
+            <div className="hidden sm:flex items-center">
               <p className="m-2 cursor-default ">|</p>
-                <a className="flex text-dodger-blue-950  text-nowrap dark:text-dodger-blue-500" href="/admin">area administrativa</a>
+              <a
+                className="flex text-dodger-blue-950  text-nowrap dark:text-dodger-blue-500"
+                href="/admin"
+              >
+                area administrativa
+              </a>
             </div>
           </div>
         </div>

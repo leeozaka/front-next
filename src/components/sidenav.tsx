@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Sidenav() {
   const [isChecked, setIsChecked] = useState(false);
@@ -15,10 +15,12 @@ export default function Sidenav() {
       >
         <div className="flex flex-col text-center">
           <p className="text-lg text-primary">I am a sidenav</p>
-          <p className="text-lg text-primary">Eu quero por info&apos;s de prod&apos;s aqui</p>
+          <p className="text-lg text-primary">
+            Eu quero por info&apos;s de prod&apos;s aqui
+          </p>
           <label>
-            <input 
-              className="mr-2" 
+            <input
+              className="mr-2"
               type="checkbox"
               checked={isChecked}
               onChange={handleCheckboxChange}

@@ -5,18 +5,21 @@ import React, { useEffect, useState } from "react";
 import GetStaticProps from "@/components/get_data";
 import { Product } from "@/components/items";
 
-export default function ProductPage( { params }: { params: Number}) { 
+export default function ProductPage({ params }: { params: Product }) {
   const id = params.id;
   const [data, setData] = useState<Product[]>([]);
-  
+
   useEffect(() => {
     GetStaticProps().then((result) => setData(result.props.products));
   }, []);
 
-  const product = data.find((item: { id: number; }) => item.id === Number(id));
+  const product = data.find((item: { id: number }) => item.id === Number(id));
 
   return (
-    <div id="sells-wrapper" className="flex justify-center flex-grow mt-8 dark:text-white">
+    <div
+      id="sells-wrapper"
+      className="flex justify-center flex-grow mt-8 dark:text-white"
+    >
       {product ? (
         <div id="product" className="flex w-3/4 justify-center">
           <Image
@@ -36,8 +39,8 @@ export default function ProductPage( { params }: { params: Number}) {
           </div>
         </div>
       ) : (
-        <a/>
-         // <p className="flex h-svh text-4xl items-center justify-center">        
+        <a />
+        // <p className="flex h-svh text-4xl items-center justify-center">
         // </p>
       )}
     </div>
