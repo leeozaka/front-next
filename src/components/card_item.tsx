@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import { Product } from "@/components/items";
+import { Product } from "@/components/get_data";
 
-const ProductCard: React.FC<Product> = ({
+export default function ProductCard({
   id,
   title,
   description,
@@ -14,7 +14,7 @@ const ProductCard: React.FC<Product> = ({
   category,
   thumbnail,
   images,
-}) => {
+}: Product) {
   return (
     <div
       className={`flex flex-col w-52 h-[500px] m-1 rounded-lg ${
@@ -64,6 +64,4 @@ const ProductCard: React.FC<Product> = ({
       </div>
     </div>
   );
-};
-
-export default ProductCard;
+}

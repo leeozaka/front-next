@@ -3,10 +3,9 @@
 import React, { useState, useEffect } from "react";
 import ProductCard from "@/components/card_item";
 import Sidenav from "@/components/sidenav";
-import GetStaticProps from "@/components/get_data";
-import { Product } from "@/components/items";
+import GetStaticProps, { Product } from "@/components/get_data";
 
-const StockPage: React.FC = () => {
+export default function StockPage() {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -21,7 +20,7 @@ const StockPage: React.FC = () => {
       item.id === Number(searchTerm) ||
       item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       item.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.brand.toLowerCase().includes(searchTerm.toLowerCase())
+      item.brand.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -32,9 +31,9 @@ const StockPage: React.FC = () => {
             filteredItems.length > 0 && searchTerm.length > 0
               ? "ring-green-500"
               : searchTerm.length === 0
-              ? "ring-slate-500"
-              : "ring-red-500"
-          } `}
+                ? "ring-slate-500"
+                : "ring-red-500"
+          } focus:outline-none`}
           type="text"
           placeholder="Pesquisar"
           value={searchTerm}
@@ -50,7 +49,7 @@ const StockPage: React.FC = () => {
             {filteredItems
               .sort(
                 (b: { stock: number }, a: { stock: number }) =>
-                  a.stock - b.stock
+                  a.stock - b.stock,
               )
               .map(
                 (item: {
@@ -75,13 +74,11 @@ const StockPage: React.FC = () => {
                     category={""}
                     images={[]}
                   />
-                )
+                ),
               )}
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default StockPage;
+}

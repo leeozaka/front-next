@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import GetStaticProps from "@/components/get_data";
-import { Product } from "@/components/items";
+import GetStaticProps, { Product } from "@/components/get_data";
 
 export default function ProductPage({ params }: { params: Product }) {
   const id = params.id;

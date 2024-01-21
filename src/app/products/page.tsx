@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import GetStaticProps from "@/components/get_data";
-import { Product } from "@/components/items";
+import GetStaticProps, { Product } from "@/components/get_data";
 
-const ProductsPage: React.FC = () => {
+export default function ProductsPage() {
   const [items, setItems] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -16,7 +15,7 @@ const ProductsPage: React.FC = () => {
 
   function handleSubmit(searchTerm: string) {
     const actualItem = items.find(
-      (item) => item.title.toLowerCase() === searchTerm.toLowerCase()
+      (item) => item.title.toLowerCase() === searchTerm.toLowerCase(),
     );
     return actualItem
       ? (window.location.href = `/products/${actualItem.id}`)
@@ -33,12 +32,10 @@ const ProductsPage: React.FC = () => {
             e.preventDefault();
             const result = handleSubmit(searchTerm);
             if (!result) {
-              document.getElementById(
-                "not-found"
-              )!.innerHTML = `${searchTerm}&nbsp;`;
-              document.getElementById(
-                "not-found-helper"
-              )!.innerHTML = `não encontrado`;
+              document.getElementById("not-found")!.innerHTML =
+                `${searchTerm}&nbsp;`;
+              document.getElementById("not-found-helper")!.innerHTML =
+                `não encontrado`;
             }
           }}
         >
@@ -65,5 +62,4 @@ const ProductsPage: React.FC = () => {
       </div>
     </>
   );
-};
-export default ProductsPage;
+}
