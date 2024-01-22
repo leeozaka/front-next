@@ -51,31 +51,9 @@ export default function StockPage() {
                 (b: { stock: number }, a: { stock: number }) =>
                   a.stock - b.stock,
               )
-              .map(
-                (item: {
-                  id: number;
-                  thumbnail: string;
-                  title: string;
-                  price: number;
-                  description: string;
-                  stock: number;
-                }) => (
-                  <ProductCard
-                    key={item.id}
-                    id={item.id}
-                    thumbnail={item.thumbnail}
-                    title={item.title}
-                    price={item.price}
-                    description={item.description}
-                    stock={item.stock}
-                    discountPercentage={0}
-                    rating={0}
-                    brand={""}
-                    category={""}
-                    images={[]}
-                  />
-                ),
-              )}
+              .map((item: Product) => (
+                <ProductCard item={item} />
+              ))}
           </div>
         </div>
       </div>
