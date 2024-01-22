@@ -6,7 +6,7 @@ import Sidenav from "@/components/sidenav";
 import GetStaticProps, { Product } from "@/components/get_data";
 
 export default function StockPage() {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<Product[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function StockPage() {
       </div>
 
       <div className="flex">
-        <Sidenav />
+        <Sidenav data={filteredItems} />
 
         <div className="flex flex-grow justify-center align-center">
           <div className="flex flex-wrap flex-grow-0 justify-center ">
