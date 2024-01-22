@@ -27,7 +27,7 @@ export default function ProductsPage() {
       <div className="flex flex-col justify-center m-6">
         <form
           id="wrap-input"
-          className="flex justify-center"
+          className="flex justify-center focus:outline-none"
           onSubmit={(e) => {
             e.preventDefault();
             const result = handleSubmit(searchTerm);
@@ -40,7 +40,7 @@ export default function ProductsPage() {
           }}
         >
           <input
-            className="w-1/2 p-2 text-center border-2 rounded-lg dark:bg-gray-800 dark:text-white dark:border-dodger-blue-950"
+            className="w-1/2 p-2 text-center border-2 rounded-lg dark:bg-gray-800 dark:text-white dark:border-dodger-blue-950 focus:outline-none"
             type="text"
             placeholder="Pesquisar"
             value={searchTerm}

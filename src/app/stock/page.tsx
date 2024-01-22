@@ -52,7 +52,7 @@ export default function StockPage() {
                   a.stock - b.stock,
               )
               .map((item: Product) => (
-                <ProductCard item={item} />
+                <ProductCard key={item.id} item={item} />
               ))}
           </div>
         </div>

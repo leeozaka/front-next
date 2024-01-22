@@ -66,8 +66,9 @@ export default function Sidenav({ data }: { data: Product[] }) {
                       (product) => product.category == value.category,
                     ),
                 )
-                .map((a: { id: number; category: string }) => (
+                .map((a: Product) => (
                   <a
+                    key={a.id}
                     className="my-2 block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2 dark:hover:text-dodger-blue-600 dark:text-white"
                     href="#"
                   >
